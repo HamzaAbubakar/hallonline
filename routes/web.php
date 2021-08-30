@@ -31,6 +31,9 @@ Route::put('users/{user}/restore')->name('users.restore')->uses('UsersController
 // Images
 Route::get('/img/{path}', 'ImagesController@show')->where('path', '.*');
 
+// Merchants
+Route::resource('merchants', 'MerchantController')->middleware('auth');
+
 // Organizations
 Route::get('organizations')->name('organizations')->uses('OrganizationsController@index')->middleware('remember', 'auth');
 Route::get('organizations/create')->name('organizations.create')->uses('OrganizationsController@create')->middleware('auth');
